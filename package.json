@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "scripts": {
+    "setup": "node scripts/setup_quartz.mjs",
+    "dev": "node scripts/run_quartz.mjs --serve",
+    "build": "node scripts/run_quartz.mjs"
+  }
+}
+

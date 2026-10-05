@@ -1,0 +1,11 @@
+docs/.obsidian/workspace.json
+docs/.obsidian/workspace-mobile.json
+docs/.obsidian/cache/
+docs/.obsidian/plugins/
+docs/.obsidian/appearance.json
+docs/.obsidian/core-plugins.json
+node_modules/
+public/
+.quartz/
+__pycache__/
+*.pyc

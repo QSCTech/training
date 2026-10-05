@@ -1,0 +1,75 @@
+name: Docs
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Generate changelog
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_SERVER_URL: ${{ github.server_url }}
+        run: node scripts/generate_changelog.mjs
+      - name: Check Markdown links
+        run: find docs -type f -name '*.md' ! -path 'docs/notes/*' -print0 | xargs -0 -r -n1 npx --yes markdown-link-check@3.12.2 --config .markdown-link-check.json
+
+  deploy:
+    if: ${{ github.event_name != 'pull_request' }}
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: github-pages
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Build Quartz
+        env:
+          SITE_URL: https://qsctech.github.io/training
+        run: |
+          node scripts/generate_changelog.mjs
+          git init .quartz
+          git -C .quartz remote add origin https://github.com/jackyzha0/quartz.git
+          git -C .quartz fetch --depth 1 origin d25a6eabf96751ffca56f8a8139272def7a65041
+          git -C .quartz checkout --detach FETCH_HEAD
+          npm ci --prefix .quartz
+          rm -rf .quartz/content
+          mkdir -p .quartz/content
+          cp -R docs/. .quartz/content/
+          node scripts/configure_quartz.mjs
+          cd .quartz
+          npx quartz build -d content -o ../public
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: public
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

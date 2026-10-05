@@ -1,0 +1,35 @@
+---
+title: 产品运营学习路线
+status: unread
+---
+
+# 产品运营学习路线
+
+这条路线从发现用户问题出发，经过需求定义、方案表达和项目验证，最后学习推广、反馈和增长。先完成[产研内训方式与整体介绍](../training-overview.md)，再按阶段推进。每阶段的产出可以保存在本地 `notes/`。
+
+## 第一阶段：理解用户与问题
+
+1. [产品经理概论与 PRD](product-introduction-prd.md)：先了解产品工作的流程与交付物。
+2. [需求分析、调研与验证](product-research-validation.md)：练习访谈、问卷和可证伪的假设。
+3. [产品分析](product-analysis.md)：从真实产品中找证据，形成改进建议。
+
+**阶段产出：**一份用户问题陈述、调研计划和产品分析。
+
+## 第二阶段：表达方案
+
+4. 回到[产品经理概论与 PRD](product-introduction-prd.md)，把调研结论写成可验收需求。
+5. [UML 建模](uml.md)：用用例图、活动图或时序图澄清流程与角色。
+
+**阶段产出：**PRD、低保真原型和一张关键流程图。
+
+## 第三阶段：验证与运营
+
+6. [产品推广、反馈与增长](product-feedback-growth.md)：为上线后的推广、答疑、反馈分类和迭代建立闭环。
+
+**阶段产出：**项目演示、推广方案、反馈台账与下一轮迭代计划。
+
+## 跨方向补充
+
+- [HTTP、API 与爬虫](../technical-development/backend-http-api.md)：与研发讨论接口、数据来源和错误状态。
+- [HTML 与 CSS](../technical-development/frontend-html-css.md)：理解页面结构，便于评审原型的实现成本。
+- [技术研发路线](../technical-development/index.md)：与技术同学组队时了解对方的学习与交付节奏。

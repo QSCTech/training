@@ -1,0 +1,19 @@
+{
+  "collapse-filter": false,
+  "search": "",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": true,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "[status:done]",
+      "color": { "a": 1, "rgb": 5635925 }
+    },
+    {
+      "query": "[status:unread]",
+      "color": { "a": 1, "rgb": 4868682 }
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+---
+title: 技术研发学习路线
+status: unread
+---
+
+# 技术研发学习路线
+
+先完成[产研内训方式与整体介绍](../training-overview.md)，然后学习 TypeScript 和 Shell。前端与后端可按兴趣选择一条主线，但组队项目需要理解另一条主线的接口。
+
+## 第一阶段：开发基础
+
+1. [环境配置与 TypeScript](environment-typescript.md)：搭好运行环境，掌握类型与模块。
+2. [Shell 与 Linux 基础](shell-basics.md)：熟悉目录、管道、SSH 与服务环境。
+
+**阶段产出：**能在本机运行、提交和解释一个 TypeScript 小程序。
+
+## 第二阶段：选择主线
+
+| 前端主线 | 后端主线 |
+| --- | --- |
+| 3. [HTML 与 CSS](frontend-html-css.md)：页面结构、样式与响应式布局 | 3. [后端面向对象与 TypeScript](backend-oop-typescript.md)：类、接口与业务建模 |
+| 4. [JavaScript、DOM 与现代框架](frontend-javascript-dom.md)：事件、状态与异步请求 | 4. [HTTP、API 与爬虫](backend-http-api.md)：协议、接口设计与请求处理 |
+| 5. 对照[产品经理概论与 PRD](../product-operations/product-introduction-prd.md)实现页面状态 | 5. [数据库、MySQL 与 Prisma](backend-database-mysql-prisma.md)：持久化与数据关系 |
+
+**阶段产出：**前端做一个可交互页面，后端做一个带数据库的 API；两者通过约定好的 JSON 结构联调。
+
+## 第三阶段：项目与分享
+
+6. 按项目需要选读：
+   - 文本处理：[正则表达式](sharing-regex.md)
+   - 网络排障：[Wireshark 入门](sharing-wireshark.md)
+   - 数据存储：[MongoDB 入门](sharing-mongodb.md)
+   - 部署与环境：[Docker 入门](sharing-docker.md)、[运维实践](sharing-operations.md)
+   - 登录与安全：[密码学入门](sharing-cryptography.md)
+   - 辅助开发：[AI Agent 与编程助手](sharing-ai-agent.md)
+
+**阶段产出：**可运行项目、README、测试记录和一次技术分享。
+
+## 跨方向补充
+
+开发前阅读[需求分析、调研与验证](../product-operations/product-research-validation.md)，明确用户问题；上线后阅读[产品推广、反馈与增长](../product-operations/product-feedback-growth.md)，把使用问题和 Bug 带回迭代。
