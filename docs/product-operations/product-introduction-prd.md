@@ -43,4 +43,4 @@ direction: product-operations
 
 ## 学习衔接
 
-先阅读[产品运营路线](index.md)；完成需求框架后进入[需求分析、调研与验证](product-research-validation.md)，带着证据再回到本页写 PRD。
+先阅读[产品运营路线](产品运营方向.md)；完成需求框架后进入[需求分析、调研与验证](product-research-validation.md)，带着证据再回到本页写 PRD。

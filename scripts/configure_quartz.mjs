@@ -32,6 +32,45 @@ updated = updated.replace(/Plugin\.CustomOgImages\(\),?/, "");
 updated = updated.replace(/Plugin\.Latex\(\{\s*renderEngine:\s*["']katex["']\s*\}\),?/, "");
 writeFileSync(configPath, updated);
 
+const routes = {
+  "求是潮产品研发中心内训仓库": "index",
+  "product-operations/产品运营方向": "product-operations/index",
+  "technical-development/技术研发方向": "technical-development/index",
+  "产研内训方式与整体介绍": "training-overview",
+  "组织与协作": "team-workflow",
+};
+const routePath = `${quartzDir}/quartz/util/path.ts`;
+let routeSource = readFileSync(routePath, "utf8");
+const slugOriginal = "let slug = sluggify(withoutFileExt)";
+const slugReplacement = `let slug = (${JSON.stringify(routes)} as Record<string, string>)[withoutFileExt] ?? sluggify(withoutFileExt)`;
+const slugConfigured = /let slug = .*?\?\? sluggify\(withoutFileExt\)/;
+if (slugConfigured.test(routeSource)) {
+  routeSource = routeSource.replace(slugConfigured, slugReplacement);
+} else if (routeSource.includes(slugOriginal)) {
+  routeSource = routeSource.replace(slugOriginal, slugReplacement);
+} else {
+  throw new Error("Quartz slug format changed");
+}
+
+const routeTargets = Object.fromEntries(
+  Object.entries(routes).map(([file, slug]) => [`${file}.md`, slug]),
+);
+const linkOriginal = "let targetSlug = transformInternalLink(target)";
+const linkReplacement = `const routeTarget = (${JSON.stringify(routeTargets)} as Record<string, FullSlug>)[decodeURIComponent(new URL(target, \`https://quartz.local/\${src}\`).pathname.slice(1))]
+  if (routeTarget) return (resolveRelative(src, routeTarget) + splitAnchor(target)[1]) as RelativeURL
+  let targetSlug = transformInternalLink(target)`;
+const routeTargetStart = routeSource.indexOf("const routeTarget = ");
+const targetSlugMarker = "  let targetSlug = transformInternalLink(target)";
+const targetSlugStart = routeSource.indexOf(targetSlugMarker, routeTargetStart);
+if (routeTargetStart >= 0 && targetSlugStart > routeTargetStart) {
+  routeSource = `${routeSource.slice(0, routeTargetStart)}${linkReplacement}${routeSource.slice(targetSlugStart + targetSlugMarker.length)}`;
+} else if (routeSource.includes(linkOriginal)) {
+  routeSource = routeSource.replace(linkOriginal, linkReplacement);
+} else {
+  throw new Error("Quartz link format changed");
+}
+writeFileSync(routePath, routeSource);
+
 const breadcrumbsPath = `${quartzDir}/quartz/components/Breadcrumbs.tsx`;
 const breadcrumbs = readFileSync(breadcrumbsPath, "utf8");
 const breadcrumbsPattern = /rootName:\s*["'][^"']*["']/;

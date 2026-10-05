@@ -41,4 +41,4 @@ direction: product-operations
 
 ## 学习衔接
 
-- 回到[产品运营路线](index.md)查看下一轮迭代；需要定位技术问题时参考[HTTP、API 与爬虫](../technical-development/backend-http-api.md)。
+- 回到[产品运营路线](产品运营方向.md)查看下一轮迭代；需要定位技术问题时参考[HTTP、API 与爬虫](../technical-development/backend-http-api.md)。

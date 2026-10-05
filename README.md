@@ -2,6 +2,10 @@
 
 本仓库采用 Markdown + Obsidian + GitHub 的形式。在线阅读链接： `https://qsctech.github.io/training/`。
 
+## 文档路径与路由
+
+`docs/` 中的文件名会显示在 Obsidian 知识图谱中。三篇入口文档使用各自的中文文件名；为了保留网站原有网址，它们的路由映射写在 `scripts/configure_quartz.mjs` 的 `routes` 中。调整入口网址时，同时更新该映射和文档间的 Markdown 链接。普通文档的路由仍由相对文件路径生成。
+
 ## 本地 Quartz 预览
 
 需要 Node.js 22、npm 10.9 及 Git。第一次在仓库根目录运行：
