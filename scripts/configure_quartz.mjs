@@ -18,6 +18,7 @@ const replacements = [
   [/fontOrigin:\s*["'](?:googleFonts|local)["']/, 'fontOrigin: "local"'],
   [/priority:\s*\["frontmatter",\s*(?:"git",\s*)?"filesystem"\]/, 'priority: ["frontmatter", "filesystem"]'],
   [/Plugin\.ObsidianFlavoredMarkdown\(\{\s*enableInHtmlEmbed:\s*false(?:,\s*mermaid:\s*false)?\s*\}\)/, "Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: false, mermaid: false })"],
+  [/Plugin\.CrawlLinks\(\{\s*markdownLinkResolution:\s*["'](?:shortest|relative)["']\s*\}\)/, 'Plugin.CrawlLinks({ markdownLinkResolution: "relative" })'],
   [/ignorePatterns:\s*\["private",\s*"templates",\s*"\.obsidian"(?:,\s*"notes\/\*\*")?\]/, 'ignorePatterns: ["private", "templates", ".obsidian", "notes/**"]'],
 ];
 let updated = source;
