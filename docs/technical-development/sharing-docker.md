@@ -40,7 +40,7 @@ Docker 是一个开源的容器化平台，它允许开发者将应用程序及�
   - Docker 有庞大的社区支持和丰富的工具链，如 Kubernetes、Docker Compose 等，可以帮助开发者更高效地管理和部署容器化应用。
 
 # Docker 组件
-![alt text](image.png)
+![alt text](assets/sharing-docker/image.png)
 
 # Docker CLI
 **定义**：与用户交互的主要工具，提供了一组命令，允许用户管理docker镜像、容器、网络和存储等资源。
@@ -87,7 +87,7 @@ docker push
 - 传统部署：直接安装在物理服务器上，使用服务器的操作系统及其资源
 - 虚拟化部署：运行在虚拟机（VM）中
 - 容器部署：运行在容器中，容器共享宿主机的操作系统内核。
-![alt text](image-1.png)
+![alt text](assets/sharing-docker/image-1.png)
 
 # Docker Compose
 > compose.yml
@@ -98,13 +98,13 @@ docker push
 
 
 **Docker Compose** 是一个用于定义和运行多容器 Docker 应用程序的工具。通过使用 YAML 文件来配置应用程序的服务、网络和卷，Docker Compose 可以轻松地启动、停止和管理多个容器。
-![alt text](image-2.png)
+![alt text](assets/sharing-docker/image-2.png)
 > .yaml的作用？
 > - 定义服务（启动哪些容器）
 > - 配置环境：写好端口等等
 > - 管理依赖
 > - 一键启动
-![alt text](image-3.png)
+![alt text](assets/sharing-docker/image-3.png)
 
 👆👆约球系统的.yaml
 
@@ -191,7 +191,7 @@ docker push
   - `RUN`：执行命令（比如 `go build`）。
   - `CMD`：镜像启动后默认运行什么程序。
 
-![alt text](image-4.png)
+![alt text](assets/sharing-docker/image-4.png)
 👆👆👆约球系统的Dockerfile
 # 来玩一下！
 启动一个nginx ，将它的首页改成自己的页面！
