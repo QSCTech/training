@@ -8,5 +8,5 @@ direction: technical-development
 
 ## 课程讲义
 
-- [React（第一次）](assets/react-session-1.pdf)
-- [React（第二次）](assets/react-session-2.pdf)
+- [React（第一次）](assets/React/react-session-1.pdf)
+- [React（第二次）](assets/React/react-session-2.pdf)

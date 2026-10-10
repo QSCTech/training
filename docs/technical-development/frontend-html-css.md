@@ -33,7 +33,7 @@ HTML 是标记语言，用元素表达页面结构。大多数元素由开始标
 
 `class` 通常用于给一组元素添加样式，`id` 用于标记页面中一个特定元素。优先选择表达含义的元素，例如 `main`、`nav`、`article` 和 `button`，不要只用 `div` 包住所有内容。表单控件要有对应的 `label`，图片应提供说明内容的 `alt`。
 
-配套资料：[HTML 讲义（PDF）](assets/HTML.pdf)。
+配套资料：[HTML 讲义（PDF）](assets/frontend-html-css/HTML.pdf)。
 
 ## CSS：页面样式
 
@@ -53,7 +53,7 @@ CSS 通过选择器找到 HTML 元素，再为它设置样式。下面的 `.card
 
 规则由选择器和一组属性组成。样式可以写在元素的 `style` 属性、页面的 `<style>` 中或独立的 `.css` 文件中；项目中通常用外部样式表，并在 HTML 的 `<head>` 中通过 `<link rel="stylesheet" href="./style.css">` 引入，便于复用和维护。
 
-配套资料：[CSS 讲义（PDF）](assets/CSS.pdf)。
+配套资料：[CSS 讲义（PDF）](assets/frontend-html-css/CSS.pdf)。
 
 每个元素都可以看作一个盒子：内容外面依次是内边距 `padding`、边框 `border` 和外边距 `margin`。它们会影响元素的尺寸和间距；调试布局时，可以用浏览器开发者工具查看盒模型。
 
