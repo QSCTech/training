@@ -4,8 +4,6 @@ status: unread
 direction: technical-development
 ---
 
-# 数据库、MySQL 与 Prisma
-
 > 本文整合自“产研后端第二次内训-数据库入门”讲义（作者：仙人掌），并补充了可直接练习的 SQL 和 Prisma 示例。
 
 ## 数据库是什么
@@ -150,7 +148,3 @@ model Todo {
 - [ ] 为“用户—待办”设计表结构，并说明主键和外键。
 - [ ] 写出查询未完成待办、创建待办和更新状态的 SQL。
 - [ ] 用 Prisma schema 表达用户与待办的一对多关系。
-
-## 学习衔接
-
-把数据模型接入[HTTP、API 与爬虫](backend-http-api.md)中的接口，然后用于项目实践；文档型数据可选读[MongoDB 入门](sharing-mongodb.md)。

@@ -1,5 +1,5 @@
 ---
-title: 技术分享：服务器运维
+title: 服务器运维基础
 status: unread
 direction: technical-development
 ---

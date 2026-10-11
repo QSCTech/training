@@ -1,10 +1,8 @@
 ---
-title: 技术分享：Docker 入门
+title: Docker 入门
 status: unread
 direction: technical-development
 ---
-
-# 技术分享：Docker 入门
 
 > 资料来源：\
 > csdiy.wiki\
@@ -222,9 +220,4 @@ docker push
 - [ ] 为一个 Node 服务写最小 Dockerfile。
 - [ ] 解释 `-p 8080:8080` 的两端分别代表什么。
 - [ ] 使用 Compose 启动应用和数据库，并记录环境变量来源。
-
-# 学习衔接
-
-先完成[Shell 与 Linux 基础](shell-basics.md)，再将容器用于项目；服务维护参考[运维实践](sharing-operations.md)。
-
 
