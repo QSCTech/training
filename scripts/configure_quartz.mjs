@@ -84,6 +84,24 @@ const updatedBreadcrumbs = breadcrumbs.replace(
 );
 if (updatedBreadcrumbs !== breadcrumbs) writeFileSync(breadcrumbsPath, updatedBreadcrumbs);
 
+// Quartz 默认只显示日期和阅读时间；有 author 的文章在日期后显示署名。
+// 将定制写在这里，确保本地预览和 CI 下载的 Quartz 使用相同的模板。
+const contentMetaPath = `${quartzDir}/quartz/components/ContentMeta.tsx`;
+const contentMeta = readFileSync(contentMetaPath, "utf8");
+const authorMeta = `      const author = fileData.frontmatter?.author
+      if (typeof author === "string" && author.trim()) {
+        segments.push(<span class="content-author">{author.trim()}</span>)
+      }
+
+`;
+const readingTimeMarker = "      // Display reading time if enabled";
+if (!contentMeta.includes(authorMeta)) {
+  if (!contentMeta.includes(readingTimeMarker)) {
+    throw new Error("Quartz content metadata format changed");
+  }
+  writeFileSync(contentMetaPath, contentMeta.replace(readingTimeMarker, authorMeta + readingTimeMarker));
+}
+
 const headPath = `${quartzDir}/quartz/components/Head.tsx`;
 const head = readFileSync(headPath, "utf8");
 const preconnect = '<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />';

@@ -1,14 +1,29 @@
 ---
 title: 静态网站部署：从本地页面到 GitHub Pages
+author: 晨星
+modified: 2026-10-13
 status: unread
 direction: technical-development
 ---
 
 你已经写好一个页面，怎样让别人通过网址打开它？这篇教程从创建网站文件开始，说明本地预览、上传、GitHub Pages 发布和后续更新的完整过程。
 
+## 必备知识与学习顺序
+
+请先完成以下两篇教程，再学习本文：
+
+- [命令行与 Shell 基础](shell-basics.md)：会进入指定目录、区分绝对与相对路径、保存文件，并能按说明在终端运行命令。
+- [Git 基础与 GitHub 协作](git-basic.md)：理解本地仓库、提交、分支和推送的区别，完成 GitHub 注册与邮箱验证，并认识仓库的 Code、Pull requests 和 Actions 页面。
+
+建议顺序是 **[命令行与 Shell 基础](shell-basics.md) → [Git 基础与 GitHub 协作](git-basic.md) → 本文**。不要求提前学会框架或后端开发；第 3 节会提供带注释的 HTML、CSS 和 SVG，帮助你认识这些文件各自的作用。本文使用新的示例目录，无需上传前两篇的示例文件。
+
+你可以在 [技术研发方向](技术研发方向.md) 查看完整课程安排。本文先学习静态文件托管；如果以后需要运行后端服务或管理自己的服务器，可以继续阅读 [Docker 入门](backend-docker.md) 和 [服务器运维基础](other-server-operations.md)，再学习容器部署、服务日志和故障排查。
+
+## 阅读前的准备
+
 示例只使用 HTML、CSS 和一张 SVG 图片，不需要框架、数据库或付费服务器。准备一个纯文本编辑器和浏览器，并注册、验证自己的 GitHub 账号；可按 [GitHub 注册说明](https://docs.github.com/en/account-and-profile/how-tos/account-management/creating-an-account-on-github)操作。
 
-第一次阅读先看第 1–7 节：基础路线使用 GitHub 网页上传文件，未安装 Git 也能完成。第 8 节介绍 Actions，第 9 节解释有构建步骤的 Quartz 文档站，可在熟悉基础发布后阅读。
+第一次阅读先看第 1–7 节：基础路线使用 GitHub 网页上传文件，便于先把发布流程走通；已安装 Git 的同学也可以使用第 5.4 节的本地 Git 路线。第 8 节介绍 Actions，第 9 节解释有构建步骤的 Quartz 文档站，可在熟悉基础发布后阅读。
 
 ## 1. 先认识发布链路
 
