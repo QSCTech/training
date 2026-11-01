@@ -16,7 +16,7 @@ const replacements = [
   [/locale:\s*["'][^"']*["']/, 'locale: "zh-CN"'],
   [/analytics:\s*(?:\{\s*provider:\s*["']plausible["'],?\s*\}|null)/, "analytics: null"],
   [/fontOrigin:\s*["'](?:googleFonts|local)["']/, 'fontOrigin: "local"'],
-  [/priority:\s*\["frontmatter",\s*(?:"git",\s*)?"filesystem"\]/, 'priority: ["frontmatter", "filesystem"]'],
+  [/priority:\s*\["frontmatter",\s*(?:"git",\s*)?"filesystem"\]/, 'priority: ["frontmatter", "git", "filesystem"]'],
   [/Plugin\.ObsidianFlavoredMarkdown\(\{\s*enableInHtmlEmbed:\s*false(?:,\s*mermaid:\s*false)?\s*\}\)/, "Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: false, mermaid: false })"],
   [/Plugin\.CrawlLinks\(\{\s*markdownLinkResolution:\s*["'](?:shortest|relative)["']\s*\}\)/, 'Plugin.CrawlLinks({ markdownLinkResolution: "relative" })'],
   [/ignorePatterns:\s*\["private",\s*"templates",\s*"\.obsidian"(?:,\s*"notes\/\*\*")?\]/, 'ignorePatterns: ["private", "templates", ".obsidian", "notes/**"]'],

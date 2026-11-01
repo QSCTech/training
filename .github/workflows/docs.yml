@@ -61,12 +61,9 @@ jobs:
           git -C .quartz fetch --depth 1 origin d25a6eabf96751ffca56f8a8139272def7a65041
           git -C .quartz checkout --detach FETCH_HEAD
           npm ci --prefix .quartz
-          rm -rf .quartz/content
-          mkdir -p .quartz/content
-          cp -R docs/. .quartz/content/
           node scripts/configure_quartz.mjs
           cd .quartz
-          npx quartz build -d content -o ../public
+          npx quartz build -d ../docs -o ../public
       - uses: actions/upload-pages-artifact@v5
         with:
           name: github-pages
